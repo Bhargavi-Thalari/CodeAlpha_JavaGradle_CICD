@@ -20,15 +20,25 @@ pipeline {
                 archiveArtifacts artifacts: 'app/build/libs/*.jar', fingerprint: true
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    mkdir -p deployed-app
+                    cp app/build/libs/*.jar deployed-app/app.jar
+                    echo "Application deployed successfully!"
+                '''
+            }
+        }
     }
 
     post {
         success {
-            echo 'Build and tests completed successfully!'
+            echo 'Build, tests and deployment completed successfully!'
         }
 
         failure {
-            echo 'Build or tests failed.'
+            echo 'Build, tests or deployment failed.'
         }
     }
 }
