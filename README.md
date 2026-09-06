@@ -105,7 +105,7 @@ and deployment server.
 The instance provides the Linux environment required to install Java,
 Gradle, Jenkins, and run the final JAR application.
 
-![EC2 instance creation](screenshots/01_EC2_Creation.png)
+![EC2 instance creation](screenshots/EC2_Creation_1.png)
 
 
 #  Step 2 -- Connect to the EC2 Instance
@@ -119,7 +119,7 @@ ssh -i <your-key.pem> ubuntu@<EC2-PUBLIC-IP>
 
 After successful login, the Ubuntu terminal was ready for project setup.
 
-![EC2 terminal login](screenshots/02_Instance_login.png)
+![EC2 terminal login](screenshots/Instance_login_2.png)
 
 
 #  Step 3 -- Install Java and Gradle
@@ -144,7 +144,7 @@ gradle -version
 ```
 
 ![Java and Gradle
-installation](screenshots/03_Java_Gradle_Installation.png)
+installation](screenshots/gradle_java_install_3.png)
 
 
 #  Step 4 -- Set Up the Gradle Project
@@ -162,10 +162,10 @@ The project uses:
 
 instead of relying on the system-wide Gradle version.
 
-![Gradle project setup](screenshots/04_Gradle_Setup.png)
+![Gradle project setup](screenshots/Gradle_setup_4.png)
 
 
-# ☕ Step 5 -- Configure the Java Application
+#  Step 5 -- Configure the Java Application
 
 The Java application source code and Gradle configuration were created
 inside the `app` module.
@@ -185,7 +185,7 @@ app/src/test/java/org/example/AppTest.java
 The Gradle build file contains the application configuration and
 required dependencies.
 
-![Java application setup](screenshots/05_Application_Setup.png)
+![Java application setup](screenshots/Application_setup_in_gradle_5.png)
 
 
 #  Step 6 -- Build and Test Before Jenkins
@@ -218,7 +218,7 @@ The generated JAR is located at:
 app/build/libs/app.jar
 ```
 
-![Successful Gradle build](screenshots/06_Build_Before_Jenkins.png)
+![Successful Gradle build](screenshots/Build_before_jenkins_6.png)
 
 
 #  Step 7 -- Connect the Project to GitHub
@@ -247,7 +247,7 @@ repository](https://github.com/Bhargavi-Thalari/CodeAlpha_JavaGradle_CICD)
 The project was pushed from the EC2 instance to GitHub using Git
 authentication.
 
-![GitHub connection](screenshots/07_GitHub_Connection.png)
+![GitHub connection](screenshots/GitHub_connection_from_instance_7.png)
 
 
 #  Step 8 -- Configure Jenkins
@@ -260,7 +260,7 @@ Jenkins was configured to run with Java 21.
 The initial Jenkins setup requires unlocking Jenkins with the
 administrator password generated during installation.
 
-![Jenkins login](screenshots/08_Jenkins_Login.png)
+![Jenkins login](screenshots/Jenkins_login_8.png)
 
 
 #  Step 9 -- Verify Jenkins Is Ready
@@ -270,7 +270,7 @@ ready!"** page.
 
 This confirms that Jenkins was successfully installed and configured.
 
-![Jenkins ready](screenshots/09_Jenkins_Ready.png)
+![Jenkins ready](screenshots/jenkins_ready_9.png)
 
 
 #  Step 10 -- Configure the Jenkins Pipeline
@@ -295,7 +295,7 @@ Deploy
 ```
 
 ![Jenkins pipeline
-configuration](screenshots/10_Jenkins_Pipeline_Configuration.png)
+configuration](screenshots/Jenkins_pipeline_configure_10.png)
 
 #  Step 11 -- Run the Jenkins Pipeline
 
@@ -312,7 +312,7 @@ The console output shows that Jenkins:
 A successful Jenkins build demonstrates the **Continuous Integration
 (CI)** part of the project.
 
-![Jenkins final output](screenshots/11_Jenkins_Final_Output.png)
+![Jenkins final output](screenshots/Jenkins_final_output_11.png)
 
 
 #  Step 12 -- Archive the Generated JAR
@@ -331,7 +331,7 @@ build can be retained and used by later deployment stages.
 
 This demonstrates artifact management as part of the CI/CD workflow.
 
-![JAR artifact archived](screenshots/12_CI_Archive_JAR.png)
+![JAR artifact archived](screenshots/CI_Archive_JAR_12.png)
 
 
 
@@ -355,7 +355,7 @@ stage('Deploy') {
 > The exact Jenkinsfile in this repository should be treated as the
 > source of truth for the final pipeline configuration.
 
-![Adding deployment stage](screenshots/13_Adding_Deploy_Stage.png)
+![Adding deployment stage](screenshots/Adding_deploy_stage_to_jenkins_file_13.png)
 
 
 #  Step 14 -- Execute the Deployment Stage
@@ -375,7 +375,7 @@ Jenkins Deploy Stage
 java -jar app/build/libs/app.jar
 ```
 
-![Deployment stage](screenshots/14_Deployment_Stage.png)
+![Deployment stage](screenshots/Deployment_stage_14.png)
 
 
 #  Step 15 -- Verify the Deployment Pipeline
@@ -386,7 +386,7 @@ successful execution.
 This provides visual confirmation that the CI/CD workflow is working
 from source checkout through deployment.
 
-![Deployment pipeline overview](screenshots/15_Deployment_Overview.png)
+![Deployment pipeline overview](screenshots/Deployment_overview_15.png)
 
 
 #  Step 16 -- Final Verification
@@ -412,7 +412,7 @@ Deployment
 Java Application
 ```
 
-![Final verification](screenshots/16_Final_Verification.png)
+![Final verification](screenshots/Final_Verification_16.png)
 
 
 #  Run the Project Manually
@@ -513,7 +513,7 @@ process.
 
 
 
-# ⭐ Conclusion
+#  Conclusion
 
 This project successfully demonstrates a complete Java CI/CD workflow
 using **Gradle, GitHub, Jenkins, and AWS EC2**.
