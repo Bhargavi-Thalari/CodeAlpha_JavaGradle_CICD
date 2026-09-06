@@ -1,12 +1,6 @@
 # CodeAlpha Java Application using Gradle -- CI/CD
 
-![Java](https://img.shields.io/badge/Java-21-orange)
-![Gradle](https://img.shields.io/badge/Gradle-8.x-02303A)
-![Jenkins](https://img.shields.io/badge/Jenkins-CI%2FCD-D24939) ![AWS
-EC2](https://img.shields.io/badge/AWS-EC2-FF9900)
-![GitHub](https://img.shields.io/badge/GitHub-Repository-181717)
-
-## 📌 Project Overview
+##  Project Overview
 
 This project demonstrates how to build, test, package, and deploy a
 **Java application using Gradle and Jenkins CI/CD** on an **AWS EC2
@@ -15,45 +9,37 @@ Ubuntu instance**.
 The project was completed as part of the **CodeAlpha Internship** and
 focuses on practical DevOps concepts such as:
 
--   Java application development
--   Gradle build automation
--   Dependency management
--   Automated testing
--   Git and GitHub version control
--   Jenkins Continuous Integration (CI)
--   JAR artifact archiving
--   Continuous Delivery/Deployment (CD)
--   AWS EC2-based application deployment
+-Java application development
+-Gradle build automation
+-Dependency management
+-Automated testing
+-Git and GitHub version control
+-Jenkins Continuous Integration (CI)
+-JAR artifact archiving
+-Continuous Delivery/Deployment (CD)
+-AWS EC2-based application deployment
 
-### 🔄 Project Workflow
+###  Project Workflow
 
 ``` text
 Java Application
        │
-       ▼
      Gradle
 (Build + Test + JAR)
        │
-       ▼
      GitHub
        │
-       ▼
      Jenkins
+       |──>Checkout
+       ├──>Build
+       ├──>Test
+       ├──>Archive JAR
+       └──>Deploy
        │
-       ├── Checkout
-       ├── Build
-       ├── Test
-       ├── Archive JAR
-       └── Deploy
-       │
-       ▼
  AWS EC2 Ubuntu
        │
-       ▼
  Running Java Application
 ```
-
-------------------------------------------------------------------------
 
 # 🛠️ Technologies Used
 
@@ -68,9 +54,7 @@ Java Application
   AWS EC2        Cloud server and deployment environment
   Linux/Ubuntu   Server operating system
 
-------------------------------------------------------------------------
-
-# 📂 Project Structure
+# Project Structure
 
 The project was created as a Gradle Java application project.
 
@@ -86,7 +70,7 @@ CodeAlpha_JavaGradle_CICD/
 │   │   │           └── App.java
 │   │   │
 │   │   └── test/
-│   │       └── java/
+│   │       |── java/
 │   │           └── org/example/
 │   │               └── AppTest.java
 │   │
@@ -112,9 +96,7 @@ CodeAlpha_JavaGradle_CICD/
 > that Jenkins can use the project's configured Gradle version instead
 > of depending on the older system Gradle installation.
 
-------------------------------------------------------------------------
-
-# ☁️ Step 1 -- Create an AWS EC2 Instance
+# Step 1 -- Create an AWS EC2 Instance
 
 An Ubuntu EC2 instance was created to act as the development, Jenkins,
 and deployment server.
@@ -124,9 +106,8 @@ Gradle, Jenkins, and run the final JAR application.
 
 ![EC2 instance creation](screenshots/01_EC2_Creation.png)
 
-------------------------------------------------------------------------
 
-# 💻 Step 2 -- Connect to the EC2 Instance
+#  Step 2 -- Connect to the EC2 Instance
 
 After creating the instance, an SSH connection was established to access
 the Ubuntu server through the terminal.
@@ -139,9 +120,8 @@ After successful login, the Ubuntu terminal was ready for project setup.
 
 ![EC2 terminal login](screenshots/02_Instance_login.png)
 
-------------------------------------------------------------------------
 
-# ☕ Step 3 -- Install Java and Gradle
+#  Step 3 -- Install Java and Gradle
 
 Java was installed and configured on the Ubuntu instance. **Java 21** is
 used by the project and Jenkins.
@@ -165,9 +145,8 @@ gradle -version
 ![Java and Gradle
 installation](screenshots/03_Java_Gradle_Installation.png)
 
-------------------------------------------------------------------------
 
-# ⚙️ Step 4 -- Set Up the Gradle Project
+#  Step 4 -- Set Up the Gradle Project
 
 A new Gradle Java application was initialized.
 
@@ -184,7 +163,6 @@ instead of relying on the system-wide Gradle version.
 
 ![Gradle project setup](screenshots/04_Gradle_Setup.png)
 
-------------------------------------------------------------------------
 
 # ☕ Step 5 -- Configure the Java Application
 
@@ -208,9 +186,8 @@ required dependencies.
 
 ![Java application setup](screenshots/05_Application_Setup.png)
 
-------------------------------------------------------------------------
 
-# 🧪 Step 6 -- Build and Test Before Jenkins
+#  Step 6 -- Build and Test Before Jenkins
 
 Before integrating Jenkins, the application was tested locally using
 Gradle.
@@ -242,9 +219,8 @@ app/build/libs/app.jar
 
 ![Successful Gradle build](screenshots/06_Build_Before_Jenkins.png)
 
-------------------------------------------------------------------------
 
-# 🐙 Step 7 -- Connect the Project to GitHub
+#  Step 7 -- Connect the Project to GitHub
 
 Git was initialized in the project directory and the project was
 committed to the `main` branch.
@@ -272,9 +248,8 @@ authentication.
 
 ![GitHub connection](screenshots/07_GitHub_Connection.png)
 
-------------------------------------------------------------------------
 
-# 🔐 Step 8 -- Configure Jenkins
+#  Step 8 -- Configure Jenkins
 
 Jenkins was installed on the Ubuntu EC2 instance and accessed through
 the Jenkins web interface.
@@ -286,9 +261,8 @@ administrator password generated during installation.
 
 ![Jenkins login](screenshots/08_Jenkins_Login.png)
 
-------------------------------------------------------------------------
 
-# ✅ Step 9 -- Verify Jenkins Is Ready
+#  Step 9 -- Verify Jenkins Is Ready
 
 After completing the initial setup, Jenkins displayed the **"Jenkins is
 ready!"** page.
@@ -297,9 +271,8 @@ This confirms that Jenkins was successfully installed and configured.
 
 ![Jenkins ready](screenshots/09_Jenkins_Ready.png)
 
-------------------------------------------------------------------------
 
-# 🔗 Step 10 -- Configure the Jenkins Pipeline
+#  Step 10 -- Configure the Jenkins Pipeline
 
 A Jenkins Pipeline job was created for the Java Gradle project.
 
@@ -323,9 +296,7 @@ Deploy
 ![Jenkins pipeline
 configuration](screenshots/10_Jenkins_Pipeline_Configuration.png)
 
-------------------------------------------------------------------------
-
-# 🚀 Step 11 -- Run the Jenkins Pipeline
+#  Step 11 -- Run the Jenkins Pipeline
 
 The Jenkins pipeline was executed successfully.
 
@@ -342,9 +313,8 @@ A successful Jenkins build demonstrates the **Continuous Integration
 
 ![Jenkins final output](screenshots/11_Jenkins_Final_Output.png)
 
-------------------------------------------------------------------------
 
-# 📦 Step 12 -- Archive the Generated JAR
+#  Step 12 -- Archive the Generated JAR
 
 After the Gradle build completed, Jenkins archived the generated JAR
 file as a build artifact.
@@ -362,9 +332,9 @@ This demonstrates artifact management as part of the CI/CD workflow.
 
 ![JAR artifact archived](screenshots/12_CI_Archive_JAR.png)
 
-------------------------------------------------------------------------
 
-# 📝 Step 13 -- Add the Deployment Stage
+
+#  Step 13 -- Add the Deployment Stage
 
 A deployment stage was added to the Jenkins pipeline.
 
@@ -386,9 +356,8 @@ stage('Deploy') {
 
 ![Adding deployment stage](screenshots/13_Adding_Deploy_Stage.png)
 
-------------------------------------------------------------------------
 
-# 🚢 Step 14 -- Execute the Deployment Stage
+#  Step 14 -- Execute the Deployment Stage
 
 The deployment stage was executed through Jenkins after the CI stages
 completed successfully.
@@ -407,9 +376,8 @@ java -jar app/build/libs/app.jar
 
 ![Deployment stage](screenshots/14_Deployment_Stage.png)
 
-------------------------------------------------------------------------
 
-# 📊 Step 15 -- Verify the Deployment Pipeline
+#  Step 15 -- Verify the Deployment Pipeline
 
 The Jenkins pipeline overview shows the completed stages and their
 successful execution.
@@ -419,9 +387,8 @@ from source checkout through deployment.
 
 ![Deployment pipeline overview](screenshots/15_Deployment_Overview.png)
 
-------------------------------------------------------------------------
 
-# 🎯 Step 16 -- Final Verification
+#  Step 16 -- Final Verification
 
 The final verification confirms that the Java application was
 successfully built, packaged, and deployed through the Jenkins pipeline.
@@ -446,61 +413,8 @@ Java Application
 
 ![Final verification](screenshots/16_Final_Verification.png)
 
-------------------------------------------------------------------------
 
-# 📜 Jenkinsfile
-
-The Jenkins pipeline is defined using a `Jenkinsfile` stored in the
-project repository.
-
-A typical pipeline structure is:
-
-``` groovy
-pipeline {
-    agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh './gradlew clean build'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh './gradlew test'
-            }
-        }
-
-        stage('Archive JAR') {
-            steps {
-                archiveArtifacts artifacts: 'app/build/libs/*.jar',
-                         fingerprint: true
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                sh 'java -jar app/build/libs/app.jar'
-            }
-        }
-    }
-}
-```
-
-> **Important:** If your committed `Jenkinsfile` contains slightly
-> different commands or stage names, keep the actual repository version
-> as the authoritative configuration.
-
-------------------------------------------------------------------------
-
-# ▶️ Run the Project Manually
+#  Run the Project Manually
 
 Clone the repository:
 
@@ -539,9 +453,7 @@ Or run the generated JAR:
 java -jar app/build/libs/app.jar
 ```
 
-------------------------------------------------------------------------
-
-# 🔧 Gradle Dependency Management
+#  Gradle Dependency Management
 
 Gradle manages the libraries required by the Java application.
 
@@ -556,9 +468,8 @@ This provides:
 -   Easier dependency updates
 -   Integration with automated CI/CD
 
-------------------------------------------------------------------------
 
-# 🔄 CI/CD Explanation
+#  CI/CD Explanation
 
 ## Continuous Integration (CI)
 
@@ -599,108 +510,7 @@ Run Java Application
 This reduces manual deployment work and creates a repeatable release
 process.
 
-------------------------------------------------------------------------
 
-# 🧠 DevOps Concepts Demonstrated
-
-### 1. Automation
-
-Gradle and Jenkins automate repetitive build, test, packaging, and
-deployment tasks.
-
-### 2. Version Control
-
-Git and GitHub maintain the application's source code and project
-history.
-
-### 3. Continuous Integration
-
-Jenkins automatically builds and tests the application.
-
-### 4. Artifact Management
-
-The generated JAR is archived by Jenkins.
-
-### 5. Continuous Deployment
-
-The successful build is passed to the deployment stage.
-
-### 6. Reproducible Builds
-
-The Gradle Wrapper ensures that the project uses its configured Gradle
-version.
-
-### 7. Cloud Infrastructure
-
-AWS EC2 provides the Linux server used for Jenkins and application
-deployment.
-
-------------------------------------------------------------------------
-
-# 🧪 Verification Checklist
-
-  Check                         Status
-  ----------------------------- --------
-  AWS EC2 instance created      ✅
-  Ubuntu server accessed        ✅
-  Java installed                ✅
-  Gradle project initialized    ✅
-  Java application configured   ✅
-  Gradle build successful       ✅
-  Tests executed successfully   ✅
-  Git repository initialized    ✅
-  Project pushed to GitHub      ✅
-  Jenkins installed             ✅
-  Jenkins pipeline configured   ✅
-  JAR artifact archived         ✅
-  Deployment stage added        ✅
-  Deployment verified           ✅
-
-------------------------------------------------------------------------
-
-# 📸 Screenshots
-
-All project screenshots should be stored inside:
-
-``` text
-screenshots/
-```
-
-Recommended clean filenames:
-
-``` text
-01_EC2_Creation.png
-02_Instance_login.png
-03_Java_Gradle_Installation.png
-04_Gradle_Setup.png
-05_Application_Setup.png
-06_Build_Before_Jenkins.png
-07_GitHub_Connection.png
-08_Jenkins_Login.png
-09_Jenkins_Ready.png
-10_Jenkins_Pipeline_Configuration.png
-11_Jenkins_Final_Output.png
-12_CI_Archive_JAR.png
-13_Adding_Deploy_Stage.png
-14_Deployment_Stage.png
-15_Deployment_Overview.png
-16_Final_Verification.png
-```
-
-------------------------------------------------------------------------
-
-# 🎓 Internship Project
-
-**Internship:** CodeAlpha Internship\
-**Project:** Java Application using Gradle -- CI/CD\
-**Repository:**
-[CodeAlpha_JavaGradle_CICD](https://github.com/Bhargavi-Thalari/CodeAlpha_JavaGradle_CICD)
-
-## 👩‍💻 Author
-
-**Bhargavi Thalari**
-
-------------------------------------------------------------------------
 
 # ⭐ Conclusion
 
