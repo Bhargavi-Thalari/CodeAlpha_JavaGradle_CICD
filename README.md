@@ -59,39 +59,6 @@ Java Application
 The project was created as a Gradle Java application project.
 ![Gradle Overview](screenshots/Gradle_overview.png)
 
-``` text
-CodeAlpha_JavaGradle_CICD/
-│
-├── app/
-│   ├── build.gradle
-│   ├── src/
-│   │   ├── main/
-│   │   │   └── java/
-│   │   │       └── org/example/
-│   │   │           └── App.java
-│   │   │
-│   │   └── test/
-│   │       |── java/
-│   │           └── org/example/
-│   │               └── AppTest.java
-│   │
-│   └── build/
-│       └── libs/
-│           └── app.jar
-│
-├── gradle/
-│   └── wrapper/
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-│
-├── gradlew
-├── gradlew.bat
-├── gradle.properties
-├── settings.gradle
-├── Jenkinsfile
-├── .gitignore
-└── README.md
-```
 
 > **Note:** The Gradle Wrapper (`gradlew`) is used in the project so
 > that Jenkins can use the project's configured Gradle version instead
