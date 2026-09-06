@@ -9,15 +9,15 @@ Ubuntu instance**.
 The project was completed as part of the **CodeAlpha Internship** and
 focuses on practical DevOps concepts such as:
 
--Java application development
--Gradle build automation
--Dependency management
--Automated testing
--Git and GitHub version control
--Jenkins Continuous Integration (CI)
--JAR artifact archiving
--Continuous Delivery/Deployment (CD)
--AWS EC2-based application deployment
+-  Java application development
+-  Gradle build automation
+-  Dependency management
+-  Automated testing
+-  Git and GitHub version control
+-  Jenkins Continuous Integration (CI)
+-  JAR artifact archiving
+-  Continuous Delivery/Deployment (CD)
+-  AWS EC2-based application deployment
 
 ###  Project Workflow
 
@@ -41,7 +41,7 @@ Java Application
  Running Java Application
 ```
 
-# 🛠️ Technologies Used
+#  Technologies Used
 
   Technology     Purpose
   -------------- --------------------------------------------
@@ -57,6 +57,7 @@ Java Application
 # Project Structure
 
 The project was created as a Gradle Java application project.
+![Gradle Overview](screenshots/Gradle_overview.png)
 
 ``` text
 CodeAlpha_JavaGradle_CICD/
